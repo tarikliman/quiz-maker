@@ -17,7 +17,7 @@ const PageHeader = () => {
     }
     return(
         <div align = 'center' className="page-header">
-            <Text color='#065666' display = 'inline' onKeyDown={handleKeyDown} onClick= {() => setIsClicked('true')} contenteditable= {isClicked} onInput = {(e) => handleHeading(e.currentTarget.textContent)} fontSize='xl' >{examName}</Text>
+            <Text color='#065666' display = 'inline' onKeyDown={handleKeyDown} onClick= {() => setIsClicked('true')} contentEditable= {isClicked} onInput = {(e) => handleHeading(e.currentTarget.textContent)} fontSize='xl' >{examName}</Text>
         </div>
            );
 }

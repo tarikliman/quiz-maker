@@ -1,62 +1,20 @@
 import React from "react";
-import PageHeader from "../PageHeader/PageHeader";
 import "./Page.css";
 import QuestionStarter from "../QuestionStarter";
-import { VStack,Card,CardBody, CardHeader } from "@chakra-ui/react";
+import {Card,CardBody, CardHeader } from "@chakra-ui/react";
 import QuestionSection from "../QuestionSection/QuestionSection";
-import Question from "../QuestionSection/Question";
+import QuestionMaker from "../QuestionMaker";
+import { useState } from "react";
 const Page = () => {
-
-        const questions = [
-            {
-                number : 1,
-                text : "lorem ipsum",
-                options : {
-                    a : 'dsfdsfsd',
-                    b : 'sdfsdgsd',
-                    c : 'sdfsdgsdg',
-                    d : 'asfsdf'
-                }
-            },
-            {
-                number : 2,
-                text : "lorem ipsum",
-                options : {
-                    a : 'dsfdsfsd',
-                    b : 'sdfsdgsd',
-                    c : 'sdfsdgsdg',
-                    d : 'asfsdf'
-                }
-            },
-            {
-                number : 3,
-                text : "lorem ipsum",
-                options : {
-                    a : 'dsfdsfsd',
-                    b : 'sdfsdgsd',
-                    c : 'sdfsdgsdg',
-                    d : 'asfsdf'
-                }
-            },
-            {
-                number : 4,
-                text : "lorem ipsum",
-                options : {
-                    a : 'dsfdsfsd',
-                    b : 'sdfsdgsd',
-                    c : 'sdfsdgsdg',
-                    d : 'asfsdf'
-                }
-            }
-        ];
+    const [questions,setQuestions] = useState([]);
     return(
-        <Card align='center' maxW='5xl' minW= '5xl' minH = '2xl' >
+        <Card align='center' maxW='5xl' minW= '5xl' minH = 'lg' >
             <CardHeader>
             <QuestionStarter/>  
             </CardHeader>
             <CardBody>
             <QuestionSection>
-                <Question></Question>
+                <QuestionMaker setQuestion = {(question) => {setQuestions(question)}}/>
             </QuestionSection>
             </CardBody>
         </Card>

@@ -6,7 +6,7 @@ const QuestionStarter = (props) => {
         
     }
     return(
-        <Button onClick= {handleAddQuestion} colorScheme='blue' variant='ghost'><AddIcon boxSize={4} /></Button>
+        <Button onClick= {handleAddQuestion}variant='ghost'><AddIcon color = 'cyan.900' boxSize={4} /></Button>
     );
 }
 export default QuestionStarter;
