@@ -3,7 +3,7 @@ import {  DeleteIcon } from "@chakra-ui/icons";
 import { useState } from 'react';
 const Option = (props) => {
 
-    const handleOption = (value) => {
+   /* const handleOption = (value) => {
       props.addOption(
         (prevState) => {
           return [
@@ -16,15 +16,17 @@ const Option = (props) => {
           }
       )
     }
+    onChange={(e) =>handleOption(e.target.value)}
+    */
     return(
     <InputGroup>
     <InputLeftElement pointerEvents='none'>
-      <Text>{props.key}</Text>
+      <Text>{props.letter}</Text>
     </InputLeftElement>
-    <Input type='text' onChange={(e) =>handleOption(e.target.value)} placeholder={`Option ${props.key}`} />
+    <Input type='text'  placeholder={`Option ${props.letter}`} />
     <InputRightElement >
       <Button colorScheme='blue' variant='ghost'>
-      <DeleteIcon onClick={() => props.handleDelete(props.key)}/>
+      <DeleteIcon onClick={() => props.handleDelete(props.letter)}/>
       </Button>
     </InputRightElement>
   </InputGroup>

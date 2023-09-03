@@ -92,9 +92,8 @@ const QuestionMaker = (props) => {
             return (
               <Option
                 key={option.letter}
-                addOption={(option) => setOptionData(option)}
+                letter={option.letter}
                 handleDelete={handleDeleteOption}
-                fetch = {fetchOption}
               />
             );
           })}
