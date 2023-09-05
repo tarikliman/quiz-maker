@@ -10,9 +10,8 @@ function App() {
       <FullScreenSection bgGradient='linear(to-r, gray.300, yellow.400, pink.200)'>
       <main>
           <VStack mx={20}>
-            
           <SettingsSection/>
-          <Page/>
+          <Page />
           </VStack>
         </main>
       </FullScreenSection>

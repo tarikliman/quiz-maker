@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState} from "react";
 import { Text } from '@chakra-ui/react';
-import './PageHeader.css'
+import { NameContext } from "../../context/ExamNameContext";
+import './PageHeader.css';
 const PageHeader = () => {
     const [examName, setExamName] = useState("Exam Name");
     const [isClicked, setIsClicked] = useState('false');
+    
+
 
     let newExamName = examName;
     const handleHeading = (newInput) => {
@@ -16,9 +19,12 @@ const PageHeader = () => {
         } 
     }
     return(
-        <div align = 'center' className="page-header">
+        <NameContext.Provider value = {examName}>
+         <div align = 'center' className="page-header">
             <Text color='#065666' display = 'inline' onKeyDown={handleKeyDown} onClick= {() => setIsClicked('true')} contentEditable= {isClicked} onInput = {(e) => handleHeading(e.currentTarget.textContent)} fontSize='xl' >{examName}</Text>
         </div>
+        </NameContext.Provider>
+      
            );
 }
 

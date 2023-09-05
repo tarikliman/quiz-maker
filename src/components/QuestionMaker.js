@@ -5,76 +5,49 @@ import {
   CardHeader,
   Textarea,
   Text,
-  VStack,
-  HStack,
+  HStack
 } from "@chakra-ui/react";
-import { AddIcon, CheckIcon, DeleteIcon } from "@chakra-ui/icons";
-import Option from "./Option";
-import { useState } from "react";
+
+import { CheckIcon, DeleteIcon } from "@chakra-ui/icons";
+import { useState, useRef } from "react";
+import OptionMaker from "./OptionMaker";
+ 
 const QuestionMaker = (props) => {
   const [textareaValue, setTextareaValue] = useState("");
-  const [optionData, setOptionData] = useState([
-    {
-      letter: "A",
-      text: "",
-    },
-    {
-      letter: "B",
-      text: "",
-    },
-    {
-      letter: "C",
-      text: "",
-    }
-  ]);
-
-  const createQuestion = () => {
-    let question = {
-      number: "1",
-      text: textareaValue,
-      options:optionData
-    };
-    props.setQuestion((prevState) => {
-      return [...prevState, question];
-    });
-  };
-
-  const fetchOption = (letterFind) => {
-    let filteredOption = optionData.filter((opt) => opt.letter === letterFind);
-    return filteredOption;
-  }
-
-  function handleAddOption() {
-    let nextLetter = getNextChar(optionData[optionData.length - 1].letter);
-    setOptionData((prevState) => {
-      return [...prevState, { letter: nextLetter, text: "" }];
-    });
-  }
-
-  const handleDeleteOption = (delLetter) => {
-    //not finished yet
-    let newOptions = optionData.filter((option) => option.letter !== delLetter);
-    setOptionData(newOptions);
-  };
+  const actionRef = useRef();
 
   const handleTextarea = (value) => {
     setTextareaValue(value);
   };
+  const finishMaker = () => {
 
-  function getNextChar(char) {
-    return String.fromCharCode(char.charCodeAt(0) + 1);
+    const optionData = actionRef.current.getData();
+    const number = props.numOfQuestions;
+    
+    const question = {
+      "id" : number,
+      "text" : textareaValue,
+      "options" : optionData
+    };
+    props.addQuestion((prevState) =>  [...prevState, question]);
+    console.log("Question Maker :", question);
+  };
+
+  const deleteQuestion = () => {
+    return("a");
+    //implement here
   }
 
   return (
-    <Card maxW="4xl" minW="4xl" minH="xsm">
+    <Card maxW="4xl" minW="4xl" minH="xsm" mt= {5}>
       <CardHeader>
         <HStack mb={4} justify="space-between">
           <Text>Question Text:</Text>
           <div>
-            <Button variant="ghost">
+            <Button variant="ghost" onClick={deleteQuestion}>
               <DeleteIcon color="cyan.900" boxSize={5} />
             </Button>
-            <Button variant="ghost" onClick={createQuestion()}>
+            <Button variant="ghost" onClick={() => finishMaker()}>
               <CheckIcon color="cyan.900" boxSize={5} />
             </Button>
           </div>
@@ -87,20 +60,7 @@ const QuestionMaker = (props) => {
         />
       </CardHeader>
       <CardBody>
-        <VStack spacing={4}>
-          {optionData.map((option) => {
-            return (
-              <Option
-                key={option.letter}
-                letter={option.letter}
-                handleDelete={handleDeleteOption}
-              />
-            );
-          })}
-          <Button colorScheme="blue" onClick={handleAddOption}>
-            <AddIcon />
-          </Button>
-        </VStack>
+        <OptionMaker ref = {actionRef}/>
       </CardBody>
     </Card>
   );
