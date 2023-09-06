@@ -1,13 +1,14 @@
 import React, { Fragment } from "react";
 import "./Page.css";
-import { Card, CardBody, CardHeader } from "@chakra-ui/react";
+import { Card, CardBody, CardHeader, Button,  } from "@chakra-ui/react";
 import QuestionSection from "../QuestionSection/QuestionSection";
 import QuestionMaker from "../QuestionMaker";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import ReactToPrint from "react-to-print";
+import { DownloadIcon } from "@chakra-ui/icons";
 const Page = (props) => {
   const [questions, setQuestions] = useState([]);
-  console.log("Page :", questions);
-
+  const componentRef = useRef();
   return (
     <Fragment>
       <Card align="center" maxW="5xl" minW="5xl" minH="lg">
@@ -18,12 +19,21 @@ const Page = (props) => {
           />
         </CardBody>
       </Card>
-      <Card align="center" maxW="5xl" minW="5xl" minH="xs">
-        <CardHeader>
-
+      <Card maxW="5xl" minW="5xl" minH="sm">
+        <CardHeader className='exam-ready-header'>
+          <div>
+            <ReactToPrint
+              trigger={() => (
+                <Button variant="solid" colorScheme="blue">
+                  <DownloadIcon />
+                </Button>
+              )}
+              content={() => componentRef.current}
+            />
+          </div>
         </CardHeader>
         <CardBody>
-          <QuestionSection questionData={questions} />
+          <QuestionSection questionData={questions}   ref={componentRef} />
         </CardBody>
       </Card>
     </Fragment>
