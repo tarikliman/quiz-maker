@@ -42,26 +42,25 @@ const Header = () => {
   let oldScrollY = 0;
 
   const handleScroll = () => {
-    if(window.scrollY > oldScrollY) {
+    if (window.scrollY > oldScrollY) {
       setTranslateValue("translateY(-200px)");
-    }else{
+    } else {
       setTranslateValue("translateY(0)");
     }
     oldScrollY = window.scrollY;
   };
-  
+
   useEffect(() => {
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-          window.removeEventListener('scroll', handleScroll);
-      };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
- 
 
   return (
     <Box
-      transform= {translateValue}
+      transform={translateValue}
       position="fixed"
       top={0}
       left={0}
@@ -81,17 +80,18 @@ const Header = () => {
         >
           <nav>
             <HStack spacing={8}>
-            {socials.map((social) => {
-              return (<a href={social.url} ><FontAwesomeIcon icon = {social.icon} size = "2x" /> </a>)
-            })}
+              {socials.map((social) => {
+                return (
+                  <a href={social.url}>
+                    <FontAwesomeIcon icon={social.icon} size="2x" />{" "}
+                  </a>
+                );
+              })}
             </HStack>
-            
           </nav>
           <nav>
             <HStack spacing={8}>
-                <a onClick = {handleClick("projects")} >Projects</a>
-                <a onClick = {handleClick("contactme")} >Contact Me</a>
-           
+              <a href="www.github.com/tarikliman">Tarık Liman's Projects</a>
             </HStack>
           </nav>
         </HStack>

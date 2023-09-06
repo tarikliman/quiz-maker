@@ -5,13 +5,13 @@ import {
   CardHeader,
   Textarea,
   Text,
-  HStack
+  HStack,
 } from "@chakra-ui/react";
 
-import { CheckIcon, DeleteIcon } from "@chakra-ui/icons";
+import { CheckIcon} from "@chakra-ui/icons";
 import { useState, useRef } from "react";
 import OptionMaker from "./OptionMaker";
- 
+
 const QuestionMaker = (props) => {
   const [textareaValue, setTextareaValue] = useState("");
   const actionRef = useRef();
@@ -20,33 +20,23 @@ const QuestionMaker = (props) => {
     setTextareaValue(value);
   };
   const finishMaker = () => {
-
     const optionData = actionRef.current.getData();
     const number = props.numOfQuestions;
-    
+
     const question = {
-      "id" : number,
-      "text" : textareaValue,
-      "options" : optionData
+      id: number,
+      text: textareaValue,
+      options: optionData,
     };
-    props.addQuestion((prevState) =>  [...prevState, question]);
+    props.addQuestion((prevState) => [...prevState, question]);
     console.log("Question Maker :", question);
   };
-
-  const deleteQuestion = () => {
-    return("a");
-    //implement here
-  }
-
-  return (
-    <Card maxW="4xl" minW="4xl" minH="xsm" mt= {5}>
+ return (
+    <Card maxW="4xl" minW="4xl" minH="xsm" mt={5}>
       <CardHeader>
         <HStack mb={4} justify="space-between">
-          <Text>Question Text:</Text>
+          <Text fontSize='lg' as='b'>Question Text:</Text>
           <div>
-            <Button variant="ghost" onClick={deleteQuestion}>
-              <DeleteIcon color="cyan.900" boxSize={5} />
-            </Button>
             <Button variant="ghost" onClick={() => finishMaker()}>
               <CheckIcon color="cyan.900" boxSize={5} />
             </Button>
@@ -60,7 +50,7 @@ const QuestionMaker = (props) => {
         />
       </CardHeader>
       <CardBody>
-        <OptionMaker ref = {actionRef}/>
+        <OptionMaker ref={actionRef} />
       </CardBody>
     </Card>
   );
