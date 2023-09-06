@@ -2,4 +2,6 @@
     outline:none;
   }
 .page-header{
+  width: 800px;
+  margin-left: 40px;
 }

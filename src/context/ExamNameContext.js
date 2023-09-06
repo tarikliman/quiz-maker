@@ -1,5 +1,5 @@
 import { createContext} from 'react';
 
-export const NameContext = createContext("Enter Exam Name Here");
+export const NameContext = createContext();
 
   

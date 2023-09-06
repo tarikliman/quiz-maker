@@ -18,7 +18,7 @@ const Page = (props) => {
           />
         </CardBody>
       </Card>
-      <Card align="center" maxW="5xl" minW="5xl" minH="lg">
+      <Card align="center" maxW="5xl" minW="5xl" minH="xs">
         <CardHeader>
 
         </CardHeader>

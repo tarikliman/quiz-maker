@@ -1,12 +1,12 @@
 import Question from "./Question";
-import { Card, HStack, Heading } from "@chakra-ui/react";
+import { Card, Heading } from "@chakra-ui/react";
 import { useContext } from "react";
 import { NameContext } from "../../context/ExamNameContext";
 const QuestionSection = (props) => {
-  const name = useContext(NameContext);
+  const {name} = useContext(NameContext);
   return (
-    <Card maxW="4xl" minW="4xl" minH="xsm" mt={6}>
-      <Heading>{name}</Heading>
+    <div maxW="4xl" minW="4xl" mt={6}>
+      <Heading textTransform='uppercase' align = 'center' size ='md' >{name}</Heading>
       {props.questionData.map((question) => (
         <Question
           key={question.id}
@@ -15,7 +15,7 @@ const QuestionSection = (props) => {
           options={question.options}
         />
       ))}
-    </Card>
+    </div>
   );
 };
 

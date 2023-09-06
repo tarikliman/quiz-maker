@@ -91,7 +91,7 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
-              <a href="www.github.com/tarikliman">Tarık Liman's Projects</a>
+              <a href="./www.github.com/tarikliman">Tarık Liman's Projects</a>
             </HStack>
           </nav>
         </HStack>
