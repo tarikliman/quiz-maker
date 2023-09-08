@@ -32,7 +32,7 @@ const Page = (props) => {
             />
           </div>
         </CardHeader>
-        <CardBody>
+        <CardBody style={{borderTop: "1px solid #A9A9A9"}}>
           <QuestionSection questionData={questions}   ref={componentRef} />
         </CardBody>
       </Card>

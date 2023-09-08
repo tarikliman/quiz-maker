@@ -19,12 +19,8 @@ const socials = [
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com/yusuftarikliman",
-  },
-  {
-    icon: faStackOverflow,
-    url: "https://stackoverflow.com/tarikliman",
-  },
+    url: "https://www.linkedin.com/in/yusuf-tarik-liman/",
+  }
 ];
 
 const Header = () => {
@@ -91,7 +87,7 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
-              <a href="./www.github.com/tarikliman">Tarık Liman's Projects</a>
+              <a href="https://github.com/tarikliman">Tarık Liman's Projects</a>
             </HStack>
           </nav>
         </HStack>
