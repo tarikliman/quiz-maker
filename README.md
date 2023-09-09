@@ -1,25 +1,30 @@
-# Getting Started with Create React App
+# Quiz Maker Project README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Table of Contents
+*Introduction
+*Features
+*Technology
+*Getting Started
+ *Prerequisites
+ *Installation
+*Usage
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+The Quiz Maker Project is a web-based application built using React that allows users to create and customize exam papers, quizzes, and tests. It provides an intuitive interface for clients to design their questions and set options. Users can then print the generated exam paper for offline use.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project is ideal for educational institutions, teachers, and anyone who needs to create customized exam papers quickly and efficiently.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+*User-Friendly Interface: An easy-to-use interface for creating and customizing exam papers.
+*Printable: Generate printable exam papers in PDF format for offline distribution and use.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
+
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
