@@ -25,11 +25,11 @@ This project is ideal for educational institutions, teachers, and anyone who nee
 
 Here's a list of technologies and libraries used in the Quiz Maker Project:
 
-* React: The core JavaScript library for building the user interface and handling the application's component-based structure.
+* **React**: The core JavaScript library for building the user interface and handling the application's component-based structure.
 
-* Chakra UI: A flexible and accessible design system for building user interfaces in React. Chakra UI is used for creating the user interface components and styling in the project.
+* **Chakra UI**: A flexible and accessible design system for building user interfaces in React. Chakra UI is used for creating the user interface components and styling in the project.
 
-* Context API: A state management library provided by React for managing global state and sharing data and functions between components.
+* **Context AP**I: A state management library provided by React for managing global state and sharing data and functions between components.
 
 ## Getting Started
 
